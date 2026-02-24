@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+const double bottomAppBarHeight = 80;
+const activeCardColor = Color(0xFF1D1E33);
+const bottomAppBarColor = Color(0xFFEB1555);
+
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
@@ -14,21 +18,28 @@ class _InputPageState extends State<InputPage> {
       ),
       body: Column(
         children: [
-          Row(
-            children: [
-              Expanded(child: ReuseableCard()),
-              Expanded(child: ReuseableCard())
-            ],
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(child: ReuseableCard()),
+                Expanded(child: ReuseableCard())
+              ],
+            ),
           ),
           Expanded(child: ReuseableCard(),),
-          Row(
-            children: [
-              Expanded(child: ReuseableCard()),
-                  Expanded(child: ReuseableCard())
-            ],
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(child: ReuseableCard()),
+                    Expanded(child: ReuseableCard())
+              ],
+            ),
           )
         ],
-      )
+      ),
+      bottomNavigationBar: 
+      BottomAppBar(color: bottomAppBarColor,
+      height: bottomAppBarHeight,),
     );
   }
 }
@@ -36,16 +47,15 @@ class _InputPageState extends State<InputPage> {
 class ReuseableCard extends StatelessWidget {
 
   final Color? color;
-  ReuseableCard({this.color});
+  const ReuseableCard({super.key, this.color});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(16),
+      margin: EdgeInsets.all(10),
       decoration: BoxDecoration(
-          color: color ?? Color(0xFF1D1E33),
-          borderRadius: BorderRadius.circular(16)),
-      child: Center(child: Text('Body Text')),
+          color: color ?? activeCardColor,
+          borderRadius: BorderRadius.circular(16),),
     );
   }
 }
