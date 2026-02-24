@@ -1,7 +1,9 @@
+import 'package:bmi_calculator/icon_content.dart';
+import 'package:bmi_calculator/reuseable_card.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const double bottomAppBarHeight = 80;
-const activeCardColor = Color(0xFF1D1E33);
 const bottomAppBarColor = Color(0xFFEB1555);
 
 class InputPage extends StatefulWidget {
@@ -21,8 +23,16 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: Row(
               children: [
-                Expanded(child: ReuseableCard()),
-                Expanded(child: ReuseableCard())
+                Expanded(child: ReuseableCard(
+                  child: IconContent(
+                    icon: FontAwesomeIcons.mars, label: "Male",
+                  ),
+                )),
+                Expanded(child: ReuseableCard(
+                  child: IconContent(
+                    icon: FontAwesomeIcons.venus, label: "Female",
+                  ),
+                ))
               ],
             ),
           ),
@@ -44,18 +54,6 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
-class ReuseableCard extends StatelessWidget {
 
-  final Color? color;
-  const ReuseableCard({super.key, this.color});
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(10),
-      decoration: BoxDecoration(
-          color: color ?? activeCardColor,
-          borderRadius: BorderRadius.circular(16),),
-    );
-  }
-}
+
