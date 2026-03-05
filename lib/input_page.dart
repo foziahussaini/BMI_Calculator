@@ -1,12 +1,9 @@
+import 'package:bmi_calculator/constant.dart';
 import 'package:bmi_calculator/icon_content.dart';
 import 'package:bmi_calculator/reuseable_card.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-const double bottomAppBarHeight = 80;
-const activeCardColor = Color(0xFF1D1E33);
-const inActiveCardColor = Color(0xFF111328);
-const bottomAppBarColor = Color(0xFFEB1555);
 
 enum Gender { male, female }
 
@@ -23,6 +20,7 @@ class _InputPageState extends State<InputPage> {
     return Scaffold(
       appBar: AppBar(title: Text('BMI CALCULATOR')),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             child: Row(
@@ -35,8 +33,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     color: selectedGender == Gender.male
-                        ? activeCardColor
-                        : inActiveCardColor,
+                        ? kActiveCardColor
+                        : kInActiveCardColor,
                     child: IconContent(
                       icon: FontAwesomeIcons.mars,
                       label: "Male",
@@ -51,8 +49,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     color: selectedGender == Gender.female
-                        ? activeCardColor
-                        : inActiveCardColor,
+                        ? kActiveCardColor
+                        : kInActiveCardColor,
                     child: IconContent(
                       icon: FontAwesomeIcons.venus,
                       label: "Female",
@@ -62,7 +60,14 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Expanded(child: ReuseableCard()),
+          Expanded(child: ReuseableCard(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("HEIGHT", style: kLabelTextStyle,)
+              ],
+            ),
+          )),
           Expanded(
             child: Row(
               children: [
@@ -74,8 +79,8 @@ class _InputPageState extends State<InputPage> {
         ],
       ),
       bottomNavigationBar: BottomAppBar(
-        color: bottomAppBarColor,
-        height: bottomAppBarHeight,
+        color: kBottomAppBarColor,
+        height: kBottomAppBarHeight,
       ),
     );
   }

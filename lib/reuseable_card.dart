@@ -1,6 +1,6 @@
+import 'package:bmi_calculator/constant.dart';
 import 'package:flutter/material.dart';
 
-const activeCardColor = Color(0xFF1D1E33);
 
 class ReuseableCard extends StatelessWidget {
 
@@ -17,7 +17,7 @@ class ReuseableCard extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: color ?? activeCardColor,
+          color: color ?? kActiveCardColor,
           borderRadius: BorderRadius.circular(16),),
         child: child,
       ),
