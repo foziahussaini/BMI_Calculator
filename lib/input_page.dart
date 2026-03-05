@@ -7,7 +7,8 @@ const double bottomAppBarHeight = 80;
 const activeCardColor = Color(0xFF1D1E33);
 const inActiveCardColor = Color(0xFF111328);
 const bottomAppBarColor = Color(0xFFEB1555);
-enum Gender{male, female}
+
+enum Gender { male, female }
 
 class InputPage extends StatefulWidget {
   @override
@@ -15,67 +16,67 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-
   Gender? selectedGender;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('BMI CALCULATOR'),
-      ),
+      appBar: AppBar(title: Text('BMI CALCULATOR')),
       body: Column(
         children: [
           Expanded(
             child: Row(
               children: [
-                Expanded(child: GestureDetector(
-                  onTap: (){
-                    setState(() {
-                      selectedGender = Gender.male;
-                    });
-                  },
+                Expanded(
                   child: ReuseableCard(
-                    color: selectedGender == Gender.male ? activeCardColor : inActiveCardColor,
+                    onPressed: (){
+                      setState(() {
+                        selectedGender = Gender.male;
+                      });
+                    },
+                    color: selectedGender == Gender.male
+                        ? activeCardColor
+                        : inActiveCardColor,
                     child: IconContent(
-                      icon: FontAwesomeIcons.mars, label: "Male",
+                      icon: FontAwesomeIcons.mars,
+                      label: "Male",
                     ),
                   ),
-                )),
-                Expanded(child: GestureDetector(
-                  onTap: (){
-                    setState(() {
-                      selectedGender = Gender.female;
-                    });
-                  },
+                ),
+                Expanded(
                   child: ReuseableCard(
-                    color: selectedGender == Gender.female ? activeCardColor : inActiveCardColor,
+                    onPressed: (){
+                      setState(() {
+                        selectedGender = Gender.female;
+                      });
+                    },
+                    color: selectedGender == Gender.female
+                        ? activeCardColor
+                        : inActiveCardColor,
                     child: IconContent(
-                      icon: FontAwesomeIcons.venus, label: "Female",
+                      icon: FontAwesomeIcons.venus,
+                      label: "Female",
                     ),
                   ),
-                ))
+                ),
               ],
             ),
           ),
-          Expanded(child: ReuseableCard(),),
+          Expanded(child: ReuseableCard()),
           Expanded(
             child: Row(
               children: [
                 Expanded(child: ReuseableCard()),
-                    Expanded(child: ReuseableCard())
+                Expanded(child: ReuseableCard()),
               ],
             ),
-          )
+          ),
         ],
       ),
-      bottomNavigationBar: 
-      BottomAppBar(color: bottomAppBarColor,
-      height: bottomAppBarHeight,),
+      bottomNavigationBar: BottomAppBar(
+        color: bottomAppBarColor,
+        height: bottomAppBarHeight,
+      ),
     );
   }
 }
-
-
-
-
