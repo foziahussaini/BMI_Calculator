@@ -173,7 +173,7 @@ class _InputPageState extends State<InputPage> {
       bottomNavigationBar: BottomAppBar(
         color: kBottomAppBarColor,
         height: kBottomAppBarHeight,
-        child: Text("Calculate"),
+        child: Center(child: Text("Calculate", style: kLargeButtonTextStyle,)),
       ),
     );
   }
