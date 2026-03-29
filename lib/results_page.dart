@@ -23,7 +23,15 @@ class ResultsPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text("Normal", style: kResultsTextStyle)
+                    Text("Normal", style: kResultsTextStyle),
+                    Text("18.3", style: kBMITextStyle,),
+                    Column(
+                      children: [
+                        Text("Normal BMI Range", style: kGreyBodyTextStyle),
+                        Text("18.5 - 25 kg/m2", style: kBodyTextStyle,)
+                      ],
+                    ),
+                    Text("You have a normal body weight, good job", style: kBodyTextStyle, textAlign: TextAlign.center,),
                   ],
                 ),
               ))

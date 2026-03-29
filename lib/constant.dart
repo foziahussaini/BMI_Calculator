@@ -22,3 +22,16 @@ const kResultsTextStyle = TextStyle(
   fontSize: 22,
   fontWeight: FontWeight.bold,
 );
+
+const kBMITextStyle = TextStyle(
+  fontSize: 100,
+  fontWeight: FontWeight.bold,
+);
+
+const kGreyBodyTextStyle = TextStyle(
+  fontSize: 22,
+  color: Colors.grey
+);
+const kBodyTextStyle = TextStyle(
+  fontSize: 22
+);
