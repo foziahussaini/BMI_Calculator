@@ -1,5 +1,6 @@
+import 'package:bmi_calculator/components/bottom_button.dart';
 import 'package:bmi_calculator/constant.dart';
-import 'package:bmi_calculator/reuseable_card.dart';
+import 'package:bmi_calculator/components/reuseable_card.dart';
 import 'package:flutter/material.dart';
 
 class ResultsPage extends StatelessWidget {
@@ -15,6 +16,8 @@ class ResultsPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(child: Container(
+            padding: EdgeInsets.all(15),
+      alignment: Alignment.bottomLeft,
             child: Text("Your Result", style: kTitleTextStyle,),)),
           Expanded(
             flex: 5,
@@ -31,10 +34,17 @@ class ResultsPage extends StatelessWidget {
                         Text("18.5 - 25 kg/m2", style: kBodyTextStyle,)
                       ],
                     ),
-                    Text("You have a normal body weight, good job", style: kBodyTextStyle, textAlign: TextAlign.center,),
+                    Padding(
+                      padding: const EdgeInsets.all(15),
+                        child: Text("You have a normal body weight, good job",
+                          style: kBodyTextStyle, textAlign: TextAlign.center,)),
                   ],
                 ),
-              ))
+              )
+          ),
+          BottomButton(title: "RE-CALCULATE", onTap: (){
+            Navigator.pop(context);
+    })
         ],
       ),
     );
