@@ -1,7 +1,5 @@
 import 'dart:math';
 
-import 'package:flutter/cupertino.dart';
-
 class Calculator{
   final int? height;
   final int? weight;
@@ -10,7 +8,7 @@ class Calculator{
   Calculator({required this.height, required this.weight});
 
   String calculateBMI(){
-    double _bmi = weight! / pow(height!, 2);
+    _bmi = weight! / pow(height!, 2);
     return _bmi.toStringAsFixed(1);
   }
 
